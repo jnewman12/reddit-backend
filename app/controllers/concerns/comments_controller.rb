@@ -6,6 +6,7 @@ class CommentsController < ApplicationController
   end
 
   def create
+    p '*' * 100
     comment = Comment.new(comment_params)
 
     if comment.save
