@@ -20,7 +20,7 @@ class PostsController < ApplicationController
 
   def show
     post = Post.find(params[:id])
-    comments = post.comments.order(create_at: :asc)
+    comments = post.comments
     response = { post: post, comments: comments }
     render json: response.to_json
   end
