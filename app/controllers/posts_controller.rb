@@ -18,11 +18,8 @@ class PostsController < ApplicationController
   def show
     post = Post.find(params[:id])
     comments = post.comments
-    # render json: { post.to_json(include: [comments]) }
-
-    respond_to do |format|
-      format.json  { render :json => post.to_json(:include => comments)}
-    end
+    response = { post: post, comments: comments }
+    render json: response
   end
 
   def destroy
