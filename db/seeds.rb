@@ -6,11 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Post.create(
-  title: 'Test',
-  link: nil,
-  body: 'hello, world!'
-)
+# Post.create(
+#   title: 'Test',
+#   link: nil,
+#   body: 'hello, world!'
+# )
 
 Comment.create([
   {
