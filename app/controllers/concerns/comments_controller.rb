@@ -31,7 +31,7 @@ class CommentsController < ApplicationController
     comment = Comment.find(params[:id])
 
     if comment.update(upvotes: comment.upvotes += 1)
-      render json: comment, status: 201, location: [comment]
+      render json: comment, status: 201, location: post_path(comment.post.id)
     else
       render json: { errors: comment.errors }, status: :unprocessable_entity
     end
