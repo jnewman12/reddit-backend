@@ -34,6 +34,8 @@ class PostsController < ApplicationController
   def upvote
     post = Post.find(params[:id])
 
+    p '*' * 100
+
     if post.update(upvotes: post.upvotes += 1)
       render json: post, status: 201, location: [post]
     else
