@@ -1,4 +1,7 @@
 class ApplicationController < ActionController::Base
+  skip_before_action :verify_authenticity_token
+  before_action :cors_check
+  
   def cors_check
     headers['Access-Control-Allow-Origin'] = '*'
     headers['Access-Control-Allow-Methods'] = 'POST, PUT, DELETE, GET, OPTIONS'
