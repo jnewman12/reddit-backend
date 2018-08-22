@@ -9,7 +9,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    post = Post.new(post_params)
+    post = Post.new(title: params[:title], body: params[:body], link: params[:link])
 
     if post.save
       render json: post, status: 201, location: [post]
@@ -43,8 +43,8 @@ class PostsController < ApplicationController
 
   private
 
-  def post_params
-    params.permit(:title, :link, :body)
-  end
+  # def post_params
+  #   params.permit(:title, :link, :body)
+  # end
 
 end
