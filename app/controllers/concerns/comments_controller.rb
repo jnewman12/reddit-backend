@@ -6,8 +6,7 @@ class CommentsController < ApplicationController
   end
 
   def create
-    p '*' * 100
-    comment = Comment.new(comment_params)
+    comment = Comment.new(body: params[:body], post_id: params[:postId])
 
     if comment.save
       render json: comment, status: 201, location: [comment]
