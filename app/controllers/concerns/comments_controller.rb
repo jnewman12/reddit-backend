@@ -37,8 +37,4 @@ class CommentsController < ApplicationController
     end
   end
 
-  # def comment_params
-  #   params.permit(:post_id, :body)
-  # end
-
 end

@@ -34,19 +34,11 @@ class PostsController < ApplicationController
   def upvote
     post = Post.find(params[:id])
 
-    p '*' * 100
-
     if post.update(upvotes: post.upvotes += 1)
       render json: post, status: 201, location: [post]
     else
       render json: { errors: post.errors }, status: :unprocessable_entity
     end
   end
-
-  private
-
-  # def post_params
-  #   params.permit(:title, :link, :body)
-  # end
 
 end
