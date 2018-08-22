@@ -1,5 +1,8 @@
 class PostsController < ApplicationController
 
+  skip_before_action :verify_authenticity_token
+  before_action :cors_check
+
   def index
     posts = Post.all 
     render json: posts 
