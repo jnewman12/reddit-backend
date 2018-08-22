@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
     comment = Comment.new(body: params[:body], post_id: params[:postId])
 
     if comment.save
-      render json: comment, status: 201, location: [comment]
+      render json: comment, status: 201, location: comment
     else
       render json: { errors: comment.errors }, status: :unprocessable_entity
     end
@@ -37,8 +37,8 @@ class CommentsController < ApplicationController
     end
   end
 
-  def comment_params
-    params.permit(:post_id, :body)
-  end
+  # def comment_params
+  #   params.permit(:post_id, :body)
+  # end
 
 end
