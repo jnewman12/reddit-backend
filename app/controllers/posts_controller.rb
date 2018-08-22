@@ -7,7 +7,7 @@ class PostsController < ApplicationController
 
   def create
     post = Post.new(post_params)
-    
+
     if post.save
       render json: post, status: 201, location: [post]
     else
@@ -17,7 +17,8 @@ class PostsController < ApplicationController
 
   def show
     post = Post.find(params[:id])
-    render json: post 
+    comments = post.comments
+    render json: { post.to_json(include: [comments]) }
   end
 
   def destroy
